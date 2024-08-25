@@ -16,6 +16,7 @@ class Loginpage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const RegistrationPage(),
     );
+   
   }
 }
 
@@ -65,6 +66,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        
         title: const Text('Register'),
         centerTitle: true,
       ),
@@ -118,6 +120,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
           ),
         ),
       ),
+    
     );
+    
   }
+  
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
-import 'package:par/Loginpage.dart';
+import 'package:par/Signup.dart';
 
 class LoginPage2 extends StatefulWidget {
   const LoginPage2({super.key});

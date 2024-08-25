@@ -3,9 +3,7 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
-void main() {
-  runApp(BNB());
-}
+
 
 class BNB extends StatefulWidget {
   static final title = 'salomon_bottom_bar';

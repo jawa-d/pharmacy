@@ -4,7 +4,7 @@ import 'package:par/BNBdev.dart';
 import 'package:par/Homepage.dart';
 import 'package:par/Homepage2.dart';
 import 'package:par/Login2.dart';
-import 'package:par/Loginpage.dart';
+import 'package:par/Signup.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
 debugShowCheckedModeBanner: false,
 
-home:BNB(),
+home:Loginpage(),
 
     );
 
