@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 void main() {
@@ -23,45 +24,48 @@ class _BNBState extends State<BNB> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text(BNB.title),
+           title: Text("Pharmacy" ,style: GoogleFonts.lato(),
         ),
-
-        bottomNavigationBar: SalomonBottomBar(
-          currentIndex: _currentIndex,
-          onTap: (i) => setState(() => _currentIndex = i),
-          items: [
-            /// Home
-            SalomonBottomBarItem(
-              icon: Icon(Icons.home),
-              title: Text("Home"),
-              selectedColor: Colors.purple,
-            ),
-
-            /// Likes
-            SalomonBottomBarItem(
-              icon: Icon(Icons.favorite_border),
-              title: Text("Likes"),
-              selectedColor: Colors.pink,
-            ),
-
-            /// Search
-            SalomonBottomBarItem(
-              icon: Icon(Icons.search),
-              title: Text("Search"),
-              selectedColor: Colors.orange,
-            ),
-
-            /// Profile
-            SalomonBottomBarItem(
-              icon: Icon(Icons.person),
-              title: Text("Profile"),
-              selectedColor: Colors.teal,
-            ),
-          ],
+        centerTitle: true,
         ),
+          
+        
+         bottomNavigationBar: SalomonBottomBar(
+        currentIndex: _currentIndex,
+        onTap: (i) => setState(() => _currentIndex = i),
+        
+        items: [
+          SalomonBottomBarItem(
+            icon: const Icon(Icons.home),
+            title: const Text("Home"),
+            selectedColor: const Color.fromARGB(255, 232, 80, 91),
+          ),
+          SalomonBottomBarItem(
+            icon: const Icon(Icons.store_mall_directory_outlined),
+            title: const Text("Store"),
+            selectedColor: const Color.fromARGB(255, 232, 80, 91),
+          ),
+          SalomonBottomBarItem(
+            icon: const Icon(Icons.qr_code_scanner_rounded),
+            title: const Text("QR"),
+            selectedColor: const Color.fromARGB(255, 232, 80, 91),
+          ),
+          SalomonBottomBarItem(
+            icon: const Icon(Icons.inventory_sharp),
+            title: const Text("Inventory"),
+            selectedColor: const Color.fromARGB(255, 232, 80, 91),
+          ),
+          SalomonBottomBarItem(
+            icon: const Icon(Icons.attach_money),
+            title: const Text("Invoices"),
+            selectedColor: const Color(0xff263238),
+          ),
+        ],
+      ),
       ),
     );
   }

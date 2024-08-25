@@ -82,6 +82,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   height: 150,
                   image: Svg("AS/Home.svg"),
                 ),
+                
               ),
               const SizedBox(height: 20),
               TextFormField(
