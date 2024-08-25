@@ -5,6 +5,7 @@ import 'package:par/Homepage.dart';
 import 'package:par/Homepage2.dart';
 import 'package:par/Login2.dart';
 import 'package:par/Signup.dart';
+import 'package:par/Store.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
 debugShowCheckedModeBanner: false,
 
-home:Loginpage(),
+home:Store(),
 
     );
 
