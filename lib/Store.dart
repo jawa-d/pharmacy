@@ -100,6 +100,7 @@ class _HomePageState extends State<Store> {
           ),
         
           const SizedBox(height: 42),
+
         const Divider(),
         const SizedBox(height: 30),
            const Divider(),
