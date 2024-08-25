@@ -210,6 +210,10 @@ class _HomePageState extends State<Store> {
                   image: "AS/Home.svg",
                   text: "Onpattro",
                 ),
+                myPanadolCard(
+                  image: "AS/Home.svg",
+                  text: "Onpattro",
+                ),
               ],
             ),
           ),
