@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 
 
-class Store extends StatelessWidget {
+class Homescreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Animated Home Screen',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -49,11 +51,10 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+        backgroundColor: Color.fromARGB(141, 55, 195, 255),
       appBar: AppBar(
         title: Text('Home Screen'),
         centerTitle: true,
-        backgroundColor: Color.fromARGB(141, 62, 117, 180),
         
       ),
       body: Center(
@@ -66,10 +67,10 @@ class _HomeScreenState extends State<HomeScreen>
             
             ScaleTransition(
               scale: _animation,
-              child: Image.network(
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgx_BfxnPfvOmlZlmyvPoUJEzN58CoJhqw3Q&usqp=CAU',
-                width: 150,
-                height: 150,
+              child: Image(
+                image: Svg("images/7191136_3568982.svg"),
+                width: 300,
+                height: 300,
               ),
             ),
             SizedBox(height: 20),
