@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
@@ -8,10 +7,10 @@ class Store extends StatefulWidget {
   const Store({super.key});
 
   @override
-  State<Store> createState() => _HomePageState();
+  State<Store> createState() => _StoreState();
 }
 
-class _HomePageState extends State<Store> {
+class _StoreState extends State<Store> {
   var _currentIndex = 0;
 
   @override
@@ -22,199 +21,213 @@ class _HomePageState extends State<Store> {
         actions: const [Icon(Icons.shopping_cart_outlined)],
       ),
       drawer: const Drawer(),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 50),
+      body: Stack(
         children: [
-          Stack(
-            clipBehavior: Clip.none,
+          ListView(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
             children: [
-              SafeArea(
-              
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 10, top: 5),
-                  child: RichText(
-                    text: const TextSpan(
-                      text: "Pharmacy ",
-                      style: TextStyle(
-                        fontSize: 27,
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromARGB(255, 0, 0, 0),
-                      ),
-                      children: [
-                      
-                        TextSpan(
-                          text: "Haven\n\n",
-                          style: TextStyle(
-                            fontSize: 27,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 255, 21, 0),
-                          ),
-                        ),
-                        TextSpan(
-                          text: " Your Trusted Health ,\n ",
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(119, 63, 42, 42),
-                          ),
-                        ),
-                        TextSpan(
-                          text: "Source, Anytime,\n ",
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(119, 63, 42, 42),
-                          ),
-                        ),
-                      
-                        TextSpan(
-                          text: "Anywhere",
-                          
-                          style: TextStyle(
-                            
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color:  Color.fromARGB(119, 63, 42, 42),
-                            
-                          ),
-                        ),
-                      ],
+              const SizedBox(height: 120), // Adjust to make space for the fixed image
+
+              // Title and subtitle
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: RichText(
+                  text: const TextSpan(
+                    text: "Pharmacy ",
+                    style: TextStyle(
+                      fontSize: 27,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 0, 0, 0),
                     ),
+                    children: [
+                      TextSpan(
+                        text: "Haven\n\n",
+                        style: TextStyle(
+                          fontSize: 27,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 255, 21, 0),
+                        ),
+                      ),
+                      TextSpan(
+                        text: "Your Trusted Health,\n",
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(119, 63, 42, 42),
+                        ),
+                      ),
+                      TextSpan(
+                        text: "Source, Anytime,\n",
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(119, 63, 42, 42),
+                        ),
+                      ),
+                      TextSpan(
+                        text: "Anywhere",
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(119, 63, 42, 42),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
-              const Positioned(
-                
-                top: -150,
-                right: 0,
-                child: Image(
-                  
-                  width: 320,
-                  height: 450,
-                  
-                  image: Svg("images/storeWelcome.svg"),
+              const SizedBox(height: 35),
+
+              // First divider
+              const Divider(),
+              const SizedBox(height: 10), // Add the search bar
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Search...',
+                    prefixIcon: Icon(Icons.search),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide.none,
+                    ),
+                    filled: true,
+                    fillColor: Colors.grey[200],
+                  ),
                 ),
-                
               ),
+              const SizedBox(height: 10),
+              const Divider(),
+              // Categories section
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text("Categories", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                  const Text("See all", style: TextStyle(fontSize: 15)),
+                ],
+              ),
+              SizedBox(
+                height: 300,
+                child: ListView(
+                  padding: const EdgeInsets.all(20),
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    myPanadolCard(
+                      image: "images/21532495_6463385.svg",
+                      text: "Skin Care",
+                    ),
+                    myPanadolCard(
+                      image: "images/18407478_5995227.svg",
+                      text: "Brain Section",
+                    ),
+                    myPanadolCard(
+                      image: "images/15577656_5642613.svg",
+                      text: "Sex Medication",
+                    ),
+                    myPanadolCard(
+                      image: "images/13955738_5416078.svg",
+                      text: "Advil",
+                    ),
+                    myPanadolCard(
+                      image: "images/7230627_3588966.svg",
+                      text: "Aspirin",
+                    ),
+                  ],
+                ),
+              ),
+              const Divider(),
+              const SizedBox(height: 20),
+
+              // Best Seller section
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text("Best Seller", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                  const Text("See all", style: TextStyle(fontSize: 15)),
+                ],
+              ),
+              SizedBox(
+                height: 300,
+                child: ListView(
+                  padding: const EdgeInsets.all(20),
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    myPanadolCard(
+                      image: "images/Tropex.jpg",
+                      text: "Panadol 500 mg",
+                    ),
+                    myPanadolCard(
+                      image: "images/shopping-bag.png",
+                      text: "Paracetamol 500 mg",
+                    ),
+                    myPanadolCard(
+                      image: "images/NoResult.svg",
+                      text: "Vyndaqel 20 mg",
+                    ),
+                    myPanadolCard(
+                      image: "images/NoResult.svg",
+                      text: "Onpattro",
+                    ),
+                    myPanadolCard(
+                      image: "images/NoResult.svg",
+                      text: "Excedrin",
+                    ),
+                  ],
+                ),
+              ),
+              const Divider(),
+              const SizedBox(height: 20), // Almost finished section
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text("Almost finished", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                  const Text("See all", style: TextStyle(fontSize: 15)),
+                ],
+              ),
+              SizedBox(
+                height: 300,
+                child: ListView(
+                  padding: const EdgeInsets.all(20),
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    myPanadolCard(
+                      image: "images/NoResult.svg",
+                      text: "Oxlumo 94.5 mg",
+                    ),
+                    myPanadolCard(
+                      image: "images/NoResult.svg",
+                      text: "Paracetamol 500 mg",
+                    ),
+                    myPanadolCard(
+                      image: "images/NoResult.svg",
+                      text: "Givlaari 189 mg/ml",
+                    ),
+                    myPanadolCard(
+                      image: "images/NoResult.svg",
+                      text: "Sudafed",
+                    ),
+                    myPanadolCard(
+                      image: "images/NoResult.svg",
+                      text: "Onpattro",
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
             ],
           ),
-        
-          const SizedBox(height: 42),
-
-        const Divider(),
-        const SizedBox(height: 30),
-           const Divider(),
-          const Text("Categories", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)
-          
-          ),
-           const Text("See all", style: TextStyle(fontSize: 18 , fontWeight: FontWeight.bold)
-          
-          ),
-          SizedBox(
-            height: 300,
-            child: ListView(
-              padding: const EdgeInsets.all(20),
-              scrollDirection: Axis.horizontal,
-              children: [
-                myPanadolCard(
-                  image: "images/21532495_6463385.svg",
-                  text: "Skin Care",
+          Positioned(
+            top: 20, // Adjust this value to position the image
+            left: 10, // Adjust this value to position the image
+            child: Container(
+              width: 100, // Adjust the width as needed
+              height: 100, // Adjust the height as needed
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: Svg("images/storeWelcome.svg"),
+                  fit: BoxFit.contain, // Adjust the fit as needed
                 ),
-                myPanadolCard(
-                  image: "images/18407478_5995227.svg",
-                  text: "Brain Section",
-                ),
-                myPanadolCard(
-                  image: "images/15577656_5642613.svg",
-                  text: "Sex Medication",
-                ),
-                myPanadolCard(
-                  image: "images/13955738_5416078.svg",
-                  text: "Advil",
-                ),
-                myPanadolCard(
-                  image: "images/7230627_3588966.svg",
-                  text: "Aspirin",
-                ),
-              ],
-            ),
-          ),
-          const Divider(),
-          const Text("Best Seller", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-          
-            const Text("See all", style: TextStyle(fontSize: 18 , fontWeight: FontWeight.bold)
-          
-          ),
-          
-          SizedBox(
-            height: 300,
-            child: ListView(
-              padding: const EdgeInsets.all(20),
-              scrollDirection: Axis.horizontal,
-              children: [
-                myPanadolCard(
-
-                 
-                  image: "images/Tropex.jpg",
-                  text: "Panadol 500 mg",
-                ),
-                myPanadolCard(
-                  image: "images/shopping-bag.png",
-                  text: "Paracetamol 500 mg",
-                ),
-                myPanadolCard(
-                  image: "AS/Home.svg",
-                  text: "Vyndaqel 20 mg",
-                ),
-                myPanadolCard(
-                  image: "images/NoResult.svg",
-                  text: "Onpattro",
-                ),
-                myPanadolCard(
-                  image: "AS/Home.svg",
-                  text: "Excedrin",
-                ),
-              ],
-            ),
-            
-          ),
-          
-          const Divider(),
-          const Text("Almost finished", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-            const Text("See all", style: TextStyle(fontSize: 18 , fontWeight: FontWeight.bold)
-          
-          ),
-          SizedBox(
-            height: 300,
-            child: ListView(
-              padding: const EdgeInsets.all(20),
-              scrollDirection: Axis.horizontal,
-              children: [
-                myPanadolCard(
-                  image: "AS/Home.svg",
-                  text: "Oxlumo 94.5 mg",
-                ),
-                myPanadolCard(
-                  image: "AS/Home.svg",
-                  text: "Paracetamol 500 mg",
-                ),
-                myPanadolCard(
-                  image: "AS/Home.svg",
-                  text: "Givlaari 189 mg/ml",
-                ),
-                myPanadolCard(
-                  image: "AS/Home.svg",
-                  text: "Sudafed",
-                ),
-                myPanadolCard(
-                  image: "AS/Home.svg",
-                  text: "Onpattro",
-                ),
-                myPanadolCard(
-                  image: "AS/Home.svg",
-                  text: "Onpattro",
-                ),
-              ],
+              ),
             ),
           ),
         ],
@@ -222,7 +235,6 @@ class _HomePageState extends State<Store> {
       bottomNavigationBar: SalomonBottomBar(
         currentIndex: _currentIndex,
         onTap: (i) => setState(() => _currentIndex = i),
-        
         items: [
           SalomonBottomBarItem(
             icon: const Icon(Icons.home),
@@ -269,7 +281,7 @@ class _HomePageState extends State<Store> {
                 topRight: Radius.circular(20),
               ),
               image: DecorationImage(
-                image: Svg(image),
+                image: Svg(image), // Assuming `image` is an SVG
                 fit: BoxFit.cover,
               ),
               boxShadow: [
